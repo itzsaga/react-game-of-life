@@ -5,6 +5,18 @@ const WIDTH = 800
 const HEIGHT = 600
 
 class Game extends Component {
+  constructor(props) {
+    super(props)
+    this.rows = HEIGHT / CELL_SIZE
+    this.cols = HEIGHT / CELL_SIZE
+    this.board = this.makeEmptyBoard()
+  }
+
+  state = {
+    cells: [],
+  }
+
+  
   render() {
     return (
       <Fragment>
