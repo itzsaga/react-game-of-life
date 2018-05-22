@@ -48,6 +48,8 @@ class Game extends Component {
             height: HEIGHT,
             backgroundSize: `${CELL_SIZE}px ${CELL_SIZE}px`
           }}
+          onClick={this.handleClick}
+          ref={n => { this.boardRed = n }}
         />
       </Fragment>
     )
