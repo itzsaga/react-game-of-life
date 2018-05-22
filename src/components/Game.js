@@ -10,7 +10,11 @@ class Game extends Component {
       <Fragment>
         <div 
           className="board"
-          style={{ width: WIDTH, height: HEIGHT }}
+          style={{ 
+            width: WIDTH,
+            height: HEIGHT,
+            backgroundSize: `${CELL_SIZE}px ${CELL_SIZE}px`
+          }}
         />
       </Fragment>
     )
