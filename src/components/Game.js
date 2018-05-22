@@ -38,6 +38,17 @@ class Game extends Component {
     }
     return cells
   }
+
+  getElementOffset() {
+    const rect = this.boardRef.getBoundingClientRect()
+    const doc = document.documentElement
+
+    return {
+      x: (rect.left + window.pageXOffset) - doc.clientLeft,
+      y: (rect.top + window.pageYOffset) - doc.clientTop,
+    }
+  }
+
   render() {
     return (
       <Fragment>
