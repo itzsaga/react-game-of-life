@@ -49,6 +49,21 @@ class Game extends Component {
     }
   }
 
+  handleClick = e => {
+    const elemOffset = this.getElementOffset()
+    const offsetX = e.clientX - elemOffset.x
+    const offsetY = e.clientY - elemOffset.y
+
+    const x = Math.floor(offsetX / CELL_SIZE)
+    const y = Math.floor(offsetY / CELL_SIZE)
+
+    if (x >= 0 && x <= this.cols && y >= 0 && y <= this.rows) {
+      this.board[y][x] = !this.board[y][x]
+    }
+
+    this.setState({ cells: this.makeCells() })
+  }
+
   render() {
     return (
       <Fragment>
