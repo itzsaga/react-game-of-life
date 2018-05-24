@@ -16,6 +16,8 @@ class Game extends Component {
 
   state = {
     cells: [],
+    interval: 100,
+    isRunning: false,
   }
 
   makeEmptyBoard() {
