@@ -68,6 +68,12 @@ class Game extends Component {
     this.setState({ cells: this.makeCells() })
   }
 
+  runGame = () => {
+    this.setState({
+      isRunning: true
+    })
+  }
+
   render() {
     const { cells } = this.state
     return (
