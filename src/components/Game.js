@@ -83,7 +83,7 @@ class Game extends Component {
               <Cell 
                 x={cell.x}
                 y={cell.y}
-                {...CELL_SIZE}
+                CELL_SIZE={CELL_SIZE}
                 key={`${cell.x},${cell.y}`}
               />
             ))}
