@@ -80,6 +80,12 @@ class Game extends Component {
     })
   }
 
+  handleIntervalChange = e => {
+    this.setState({
+      interval: e.target.value
+    })
+  }
+
   render() {
     const { cells } = this.state
     return (
