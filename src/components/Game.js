@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react'
 
+import Cell from './Cell'
+
 const CELL_SIZE = 20
 const WIDTH = 800
 const HEIGHT = 600
@@ -65,6 +67,7 @@ class Game extends Component {
   }
 
   render() {
+    const { cells } = this.state
     return (
       <Fragment>
         <div 
@@ -75,8 +78,16 @@ class Game extends Component {
             backgroundSize: `${CELL_SIZE}px ${CELL_SIZE}px`
           }}
           onClick={this.handleClick}
-          ref={n => { this.boardRed = n }}
-        />
+          ref={n => { this.boardRef = n }}>
+            {cells.map(cell => (
+              <Cell 
+                x={cell.x}
+                y={cell.y}
+                {...CELL_SIZE}
+                key={`${cell.x},${cell.y}`}
+              />
+            ))}
+        </div>
       </Fragment>
     )
   }
