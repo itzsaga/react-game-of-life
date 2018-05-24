@@ -87,7 +87,7 @@ class Game extends Component {
   }
 
   render() {
-    const { cells } = this.state
+    const { cells, isRunning } = this.state
     return (
       <Fragment>
         <div 
@@ -107,6 +107,13 @@ class Game extends Component {
                 key={`${cell.x},${cell.y}`}
               />
             ))}
+        </div>
+        <div className="controls">
+          Update every <input value={this.state.interval} onChange={this.handleIntervalChange} /> msec
+          {isRunning ?
+            <button className="button" onClick={this.stopGame}>Stop</button> :
+            <button className="button" onClick={this.runGame}>Run</button>
+          }
         </div>
       </Fragment>
     )
