@@ -74,6 +74,12 @@ class Game extends Component {
     })
   }
 
+  stopGame = () => {
+    this.setState({
+      isRunning: false
+    })
+  }
+
   render() {
     const { cells } = this.state
     return (
