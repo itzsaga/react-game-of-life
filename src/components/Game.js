@@ -113,6 +113,9 @@ class Game extends Component {
 
     this.timeoutHandler = window.setTimeout(() => {
       this.runIteration()
+      if (this.state.cells.length === 0) {
+        this.stopGame()
+      }
     }, this.state.interval)
   }
 
@@ -136,6 +139,14 @@ class Game extends Component {
     this.setState({
       interval: e.target.value
     })
+  }
+
+  handleClear = () => {
+    this.board = this.makeEmptyBoard()
+    this.setState({
+      cells: this.makeCells()
+    })
+    this.stopGame()
   }
 
   render() {
@@ -166,6 +177,7 @@ class Game extends Component {
             <button className="button" onClick={this.stopGame}>Stop</button> :
             <button className="button" onClick={this.runGame}>Run</button>
           }
+          <button className="button" onClick={this.handleClear}>Clear</button>
         </div>
       </Fragment>
     )
