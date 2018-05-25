@@ -149,6 +149,18 @@ class Game extends Component {
     this.stopGame()
   }
 
+  handleRandom = () => {
+    for (let y = 0; y < this.rows; y++) {
+      for (let x = 0; x < this.cols; x++) {
+        this.board[y][x] = (Math.random() >= 0.7)
+      }
+    }
+
+    this.setState({
+      cells: this.makeCells()
+    })
+  }
+
   render() {
     const { cells, isRunning } = this.state
     return (
@@ -177,6 +189,7 @@ class Game extends Component {
             <button className="button" onClick={this.stopGame}>Stop</button> :
             <button className="button" onClick={this.runGame}>Run</button>
           }
+          <button className="button" onClick={this.handleRandom}>Random</button>
           <button className="button" onClick={this.handleClear}>Clear</button>
         </div>
       </Fragment>
