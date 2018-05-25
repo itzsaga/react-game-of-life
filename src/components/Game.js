@@ -10,7 +10,7 @@ class Game extends Component {
   constructor(props) {
     super(props)
     this.rows = HEIGHT / CELL_SIZE
-    this.cols = HEIGHT / CELL_SIZE
+    this.cols = WIDTH / CELL_SIZE
     this.board = this.makeEmptyBoard()
   }
 
